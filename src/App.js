@@ -1,39 +1,20 @@
-import { StrictMode, useState } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import SearchParams from "./SearchParams";
-import Details from "./Details";
-import ThemeContext from "./ThemeContext";
+import logo from "./logo.svg";
+import "./App.css";
 
-const App = () => {
-  const theme = useState("black");
+function App() {
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    Edit <code>src/App.js</code> and save to reload.
+                </p>
+                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+                    Learn React
+                </a>
+            </header>
+        </div>
+    );
+}
 
-  return (
-    <ThemeContext.Provider value={theme}>
-      <div>
-        <Router>
-          <header>
-            <Link to="/">
-              <h1>Adopt Me!</h1>
-            </Link>
-          </header>
-          <Switch>
-            <Route path="/details/:id">
-              <Details />
-            </Route>
-            <Route path="/">
-              <SearchParams />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    </ThemeContext.Provider>
-  );
-};
-
-ReactDOM.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById("root")
-);
+export default App;
